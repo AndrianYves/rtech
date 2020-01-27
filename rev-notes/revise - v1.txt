@@ -1,0 +1,50 @@
+Client
+Registration
+	DONE •	ID number (7 digits lang tas di navalidate(pwede maglagay ng negative sign))
+	DONE •	Matatanggal na daw yung Registration sa Homepage pag end na yung Regustration period
+	
+Login 
+	NO CHANGES •	gawing 1 click lang sa tab (kasi 2 click sa tab bago mapunta sa password) 
+						--- 1 click lang xa mga lolo 
+						--- antayin niong mag load yung page bago kau mag click...
+
+Polls/Announcement
+	NO CHANGES •	Mawawala daw search function pag empty or inarchieved ni admin
+						--- this is common sense
+						--- kung walang nakalagay sa table, walang masesearch... bobo lang mag sesearch sa obvious na wala naman masesearch... 
+						--- I'll leave it like that.
+						--- maglalagay nalang ako ng "Empty" na word sa table
+
+Superadmin/admin
+
+Dashboard
+•	Clickable --- ano ang clickable dun.. tas ano actions nia or kung ano mangyayari pag n click.. be specific
+•	Edit header --- ano ang ieedit? be specific
+
+Manage Users/Requests
+	NO ChANGES •	Bakit same lang content ng Users at Admin 
+						--- power of observation tau 
+						--- "USERS" - contains all users ( admin, students, requests ) -- admins will not be displayed pag hindi superadmin
+						--- "ADMIN" - contains all admins (superadmin lang to makikita)
+						--- "STUDENTS" - contains all students na approved
+						--- "REQUESTS" - contains all students na hindi pa na approve
+	DONE •	Checkbox daw tsaka activate all/deactivate all
+	NO CHANGES •	Mawawala rin search function pag empty 
+						--- this is common sense
+						--- kung walang nakalagay sa table, walang masesearch... bobo lang mag sesearch sa obvious na wala naman masesearch... 
+						--- I'll leave it like that.
+						--- maglalagay nalang ako ng "Empty" na word sa table
+
+Polls/Announcement
+	NO CHANGES •	Mawawala daw search function pag empty na yung polls at announcements
+						--- this is common sense
+						--- kung walang nakalagay sa table, walang masesearch... bobo lang mag sesearch sa obvious na wala naman masesearch... 
+						--- I'll leave it like that.
+						--- maglalagay nalang ako ng "Empty" na word sa table
+	DONE •	Checkbox din tapos archieved all/hide all/delete all archieved/show all
+
+Registration schedule
+	DONE •	No validation (e.g Jan. 13, 2020 – Jan 12, 2020)
+	THIS IS ALREADY THE CASE •	Example: Start: Jan 12, 2020 & End: Jan 13, 2020 – pwede pa siya magregister ng Jan 13, 2020 pero sa 14 di na pwede
+		--- If you want to test it, don't test it at the same time an day.
+		--- Example... ngaun is Jan 14, 3pm... tas tinest nio i set na start date is Jan 13, and end date is Jan 14... so ang result nian is "Registration has ended." ... bakit? kasi sinet nio yung end date jan 14 3pm... so lumagpas na din.. kaya if you want to test this shit, test is atleast one ay before. got it? pag hindi.. call 911 char

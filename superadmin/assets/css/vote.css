@@ -1,0 +1,18 @@
+.home table tbody tr td.actions {
+	padding: 8px;
+	text-align: right;
+}
+
+.home table tbody tr td.actions .view {
+	color: #FFFFFF;
+	text-align: right;
+	padding: 10px 12px;
+	border-radius: 5px;
+	display: inline-flex;
+	text-decoration: none;
+	background-color: #333;
+}
+
+.home table tbody tr td.actions .view:hover {
+	background-color: #feb236;
+}

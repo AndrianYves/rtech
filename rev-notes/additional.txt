@@ -1,0 +1,5 @@
+change logo
+bell notification & email notification
+post announcement with image
+cannot set school year (seperadmin must set the school year)
+no membership renewal (members should be able to renew membership for the next school year)
