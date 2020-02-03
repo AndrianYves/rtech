@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 27, 2020 at 03:44 PM
+-- Generation Time: Feb 03, 2020 at 04:57 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -251,25 +251,26 @@ CREATE TABLE IF NOT EXISTS `users` (
   `course` varchar(50) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(300) DEFAULT NULL,
-  `expiry_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `expiry_date` varchar(255) DEFAULT NULL,
   `posting_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` enum('active','inactive','pending') DEFAULT 'pending',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `id_number`, `course`, `email`, `password`, `expiry_date`, `posting_date`, `status`) VALUES
-(15, 'Mark', 'Abuzo', 2161234, 'BSIT-II', 'asd@yahoo.com', '$2y$10$HWhB7GAw7t.967uiUzQdKeNprEjviRBK3wBtc.PYBxf53bGCdS8dq', '2020-11-30 16:00:00', '2019-11-30 16:00:00', 'inactive'),
-(51, 'Mark', 'Abuzo', 2167831, 'BSBA-IV', 'mark@yahoo.com', '$2y$10$HWhB7GAw7t.967uiUzQdKeNprEjviRBK3wBtc.PYBxf53bGCdS8dq', '2020-06-18 16:00:00', '2019-12-18 16:00:00', 'active'),
-(52, 'josh', 'avil', 2163538, 'BSIT-IV', 'josh@avila', 'Josh1234', '2020-06-18 16:00:00', '2019-12-18 16:00:00', 'active'),
-(54, 'Jason', 'Torio', 2153667, 'BSIT-IV', 'torio@jason', 'Torio1234', '2020-06-18 16:00:00', '2019-12-18 16:00:00', 'active'),
-(66, 'Frank Jason', 'Torio', 20131231, 'BSIT - 4', 'torio@gmail.com', '$2y$10$XzKq4gzHstRPbZ7x6m59WuwVOFI5ZIkWF456ObkNp6AVWedeO1R0K', '2020-07-10 16:00:00', '2020-01-10 16:00:00', 'pending'),
-(67, 'Laurence', 'Bernardo', 2000000, 'BSIT-IV', 'laurence@gmail.com', '$2y$10$6XdO7I6GgT8xfJgmisbAIes2EXQ9fFh..QwJO.mLnK/hc48H5pvv6', '2020-07-11 16:00:00', '2020-01-11 16:00:00', 'pending'),
-(68, 'dude', 'dude', 1234567, 'BSIT-3', '1234@gmail.com', '$2y$10$IqTEdRA8Odv8moVkhQ95/.aaG0G72ZQ2/FozCVy64DHUc307nfOGq', '2020-07-19 16:00:00', '2020-01-19 16:00:00', 'active'),
-(69, 'sample', 'asmple', 1111111, 'bsit4', '1111111@gmail.com', '$2y$10$EvYkX5tosZB5V2xqrywg2OZNGtlLSDc1qbJouaXkas5LrVRBpHnaS', '2020-07-26 16:00:00', '2020-01-26 16:00:00', 'active');
+(15, 'Mark', 'Abuzo', 2161234, 'BSIT-II', 'asd@yahoo.com', '$2y$10$HWhB7GAw7t.967uiUzQdKeNprEjviRBK3wBtc.PYBxf53bGCdS8dq', '2020-12-01 00:00:00', '2019-11-30 16:00:00', 'inactive'),
+(51, 'Mark', 'Abuzo', 2167831, 'BSBA-IV', 'mark@yahoo.com', '$2y$10$HWhB7GAw7t.967uiUzQdKeNprEjviRBK3wBtc.PYBxf53bGCdS8dq', '2020-06-19 00:00:00', '2019-12-18 16:00:00', 'active'),
+(52, 'josh', 'avil', 2163538, 'BSIT-IV', 'josh@avila', 'Josh1234', '2020-06-19 00:00:00', '2019-12-18 16:00:00', 'active'),
+(54, 'Jason', 'Torio', 2153667, 'BSIT-IV', 'torio@jason', 'Torio1234', '2020-06-19 00:00:00', '2019-12-18 16:00:00', 'active'),
+(66, 'Frank Jason', 'Torio', 20131231, 'BSIT - 4', 'torio@gmail.com', '$2y$10$XzKq4gzHstRPbZ7x6m59WuwVOFI5ZIkWF456ObkNp6AVWedeO1R0K', '2020-07-11 00:00:00', '2020-01-10 16:00:00', 'active'),
+(67, 'Laurence', 'Bernardo', 2000000, 'BSIT-IV', 'laurence@gmail.com', '$2y$10$6XdO7I6GgT8xfJgmisbAIes2EXQ9fFh..QwJO.mLnK/hc48H5pvv6', '2020-07-12 00:00:00', '2020-01-11 16:00:00', 'active'),
+(68, 'dude', 'dude', 1234567, 'BSIT-3', '1234@gmail.com', '$2y$10$IqTEdRA8Odv8moVkhQ95/.aaG0G72ZQ2/FozCVy64DHUc307nfOGq', '2020-07-20 00:00:00', '2020-01-19 16:00:00', 'active'),
+(69, 'sample', 'asmple', 1111111, 'bsit4', '1111111@gmail.com', '$2y$10$EvYkX5tosZB5V2xqrywg2OZNGtlLSDc1qbJouaXkas5LrVRBpHnaS', '2020-07-27 00:00:00', '2020-01-26 16:00:00', 'active'),
+(70, 'Axel', 'Witsel', 1232123, 'bsit 4', 'adwd@gmail.com', '$2y$10$sY3yxGLlbaXdLTqYfJrLb.dt1lIZTaEUpwBypyQidNCVxdug46QV6', '2020/01/03', '2020-02-02 16:00:00', 'active');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

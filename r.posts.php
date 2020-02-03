@@ -1,6 +1,17 @@
 <?php
 include_once 'r.functions.php';
 
+// renew
+if( isset($_rq['renew']) ) {
+	$errors = '';
+	$id		= $_rq['expireid'];
+	$dayt      	= date("Y/m/d");
+	$expdate 	= date('Y/m/d', strtotime('+6 months'));
+
+	$sql = mysqli_query($con,"UPDATE users SET status = 'pending', expiry_date = '$expdate', posting_date = '$dayt' WHERE `id` = '$id'");
+	echo $rsg->HTML_1('Success!','Your account request is now pending for approval. Please wait for confirmation. Thank you.','closemodalreload');
+}
+
 // Member Registration
 if( isset($_rq['signup']) ) {
 	$errors = '';
@@ -49,24 +60,16 @@ if(isset($_rq['login'])){
 		$ret = mysqli_query( $con,"SELECT * FROM users WHERE id_number='$userid' AND status = 'active'; ");
 		$num = mysqli_fetch_array($ret);
 		if($num>0){
-			if( $password == '1' ){
-				if( $num['password']==1 ){
-					$_SESSION['login'] 	= $_rq['uemail'];
-					$_SESSION['id'] 	= $num['id'];
-					$_SESSION['name'] 	= $num['fname'];
-					$_SESSION['status'] = $num['status'];
-					$_SESSION['userType'] = 'stud';
-					$extra 	= "../index1.php";
-					$host 	= $_SERVER['HTTP_HOST'];
-					$uri 	= rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-					header("location:http://$host$uri/$extra");
-					exit();
-				}else{
-					echo $rsg->HTML_1('Oops!','Password or username does not match.','closemodalreload');
-				}
-			}else{
 				if( password_verify( $password, $num['password'] ) ){
-					$_SESSION['login'] 	= $_rq['uemail'];
+
+					$expiration = strtotime($num['expiry_date']);
+		            $now= strtotime(date('Y-m-d'));
+
+		          if($expiration < $now) {
+		        	$_SESSION['expiration'] = $num['id'];
+		            header('location: expire.php');
+		          } else {
+		            $_SESSION['login'] 	= $_rq['uemail'];
 					$_SESSION['id'] 	= $num['id'];
 					$_SESSION['name'] 	= $num['fname'];
 					$_SESSION['status'] = $num['status'];
@@ -76,10 +79,12 @@ if(isset($_rq['login'])){
 					$uri 	= rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 					header("location:http://$host$uri/$extra");
 					exit();
+		          }
+
 				}else{
 					echo $rsg->HTML_1('Ooop!','Entered password or ID Number does not match.','');
 				}
-			}
+			
 		}else{
 			echo $rsg->HTML_1('Ooops!','Invalid Details Or Account is not yet confirmed. If you think this is wrong please contact an administrator. Thank you.','closemodalreload');
 		}
