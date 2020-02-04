@@ -19,8 +19,13 @@ if(isset($_POST['update_reg_sched'])){
   $s_date = $_POST["s_date"];
   $e_date = $_POST["e_date"];
 
-  $sql = "UPDATE reg_scheds SET start_date = '$s_date', end_date = '$e_date' where id = '1'"; 
-  mysqli_query($con, $sql);
+  if(strtotime($_POST['s_date']) > strtotime($_POST['e_date'])){
+  	echo $rsg->HTML_1('Success!','Invalid Date','closemodalreload');
+  } else{
+  	$sql = "UPDATE reg_scheds SET start_date = '$s_date', end_date = '$e_date' where id = '1'"; 
+ 	 mysqli_query($con, $sql);
+	}
+  
 }
 ?>
 <section id="main-content">
